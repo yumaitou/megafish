@@ -1,0 +1,12 @@
+numpy
+pandas
+matplotlib
+dask
+xarray
+zarr
+scikit-image
+scikit-learn
+tifffile
+scipy
+napari[all]
+imaris-ims-file-reader
