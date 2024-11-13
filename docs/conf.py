@@ -20,7 +20,7 @@ project = 'MEGA-FISH'
 copyright = '2024, Yuma Ito'
 author = 'Yuma Ito'
 
-version = '0.1.0'
+version = '0.1.1'
 
 # -- General configuration ----------------------------------------------------
 
