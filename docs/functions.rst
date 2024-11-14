@@ -272,3 +272,9 @@ misc
      - Manages the resource configuration for the MEGA-FISH framework, allowing for GPU usage and scheduling settings with Dask.
    * - :py:mod:`megafish.utils`
      - Provides utility functions for natural sorting, generating tile coordinates based on scanning patterns.
+
+
+.. toctree::
+   :maxdepth: 1
+
+   Full API reference <api/megafish>

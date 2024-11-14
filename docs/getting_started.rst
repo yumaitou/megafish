@@ -105,7 +105,7 @@ In addition, the dataset includes a ``stitched`` folder, which contains a pre-st
     └── stitched/
         └── hcst_mip_stitched.tif
 
-To use this dataset, download it from `Zenodo <https://zenodo.org/record/example>`_ and save it to a directory of your choice, for example: ``/home/UserName/megafish_sample/getting_started/``.
+To use this dataset, download it from `Zenodo <https://doi.org/10.5281/zenodo.14158810>`_ and save it to a directory of your choice, for example: ``/home/UserName/megafish_sample/getting_started/``.
 
 
 Processing

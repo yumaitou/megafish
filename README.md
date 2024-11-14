@@ -11,7 +11,7 @@ Please see documentation for more information about MEGA-FISH.
 ## Installation
 
 MEGA-FISH supports GPU acceleration on Linux systems and Windows PCs with WSL2.
-See the [documentation](https://megafish.readthedocs.io/en/latest/installation.html) for more information.
+See the [documentation](https://megafish.readthedocs.io/en/latest/getting_started.html#installation) for more information.
 
 MEGA-FISH supports multi-core CPU parallel computation and is available on Linux, Windows, and macOS. Below are the installation steps for setting up CPU-only MEGA-FISH.
 
@@ -23,7 +23,7 @@ pip install megafish
 
 ## Getting Started
 
-Once you have installed MEGA-FISH, you can start by following the [tutorial](https://megafish.readthedocs.io/en/latest/tutorial.html) using the example data. 
+Once you have installed MEGA-FISH, you can start by following the [tutorial](https://megafish.readthedocs.io/en/latest/getting_started.html#sample-dataset) using the example data. 
 
 ## Data Structure
 
@@ -31,7 +31,7 @@ MEGA-FISH is designed not to create a MEGA-FISH-specific data structure, but to 
 
 ## Contributing
 
-We welcome contributions to MEGA-FISH. Please see the [contribution guide](https://megafish.readthedocs.io/en/latest/contributing.html) for more information.
+We welcome contributions to MEGA-FISH. Please see the [contribution guide](https://megafish.readthedocs.io/en/latest/user_guide.html#data-structure) for more information.
 
 ## Citing
 
@@ -41,6 +41,6 @@ Coming soon.
 
 ## License
 
-MEGA-FISH is licensed under the [BSD 3-Clause License](https://github.com/yumaitou/slitflow/blob/main/LICENCE). 
+MEGA-FISH is licensed under the [BSD 3-Clause License](https://github.com/yumaitou/megafish/blob/main/LICENCE). 
 
 

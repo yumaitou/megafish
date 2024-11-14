@@ -78,6 +78,12 @@ Changelog
 **MEGA-FISH** follows major version zero (rapid development) of Semantic Versioning.
 
 
+0.1.1 (2024-11-13)
+----------------------
+
+Bug Fixes
+  * Fix Python dependencies.
+
 0.1.0 (2024-11-13)
 ----------------------
 
