@@ -148,7 +148,7 @@ For optimal performance, CPU processing is recommended in this tutorial dataset.
 
 .. code-block:: python
 
-   mf.config.set_resource(GPU=False, scheduler="processes")
+   mf.config.set_resource(gpu=False, scheduler="processes")
 
 Loading the dataset
 ---------------------
@@ -429,9 +429,9 @@ RNA spot detection in MEGA-FISH involves two main steps: applying a Difference o
         # Summarize counts across all channels and save the cell-by-gene expression matrix
         groups = ["rna1_mip_reg_dog_lmx_ith_cnt",
                 "rna2_mip_reg_dog_lmx_ith_cnt"]
-        group_seg = "hcst_mip_reg_slc_gbr_bin_wts_msl_seg"
+        group_seg = "hcst_mip_reg_slc_gbr_bin_wts_msl_fil_seg"
         channels = [2, 3]
-        genename_path = "/home/UserName/megafish_sample/getting_started/IMR90_SeqFISH_genename.csv"
+        genename_path = "/home/UserName/megafish_sample/getting_started/analysis/IMR90_SeqFISH_genename.csv"
         group_out = "rna_cnt"
         mf.seqfish.count_summary(
             zarr_path, groups, group_seg, group_out, channels, genename_path)

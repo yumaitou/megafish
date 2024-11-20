@@ -137,6 +137,13 @@ This is achieved through the use of pyramidal zoom images, which store multiple 
 By visualizing lower-resolution images when zoomed out, Napari minimizes memory usage and enhances performance.
 
 To prepare your images for visualization, use the :py:func:`megafish.view.make_pyramid` function.
+
+.. code-block:: python
+
+    groups = ["hcst_mip_reg", "rna1_mip_reg", "rna2_mip_reg"]
+    for group in groups:
+        mf.view.make_pyramid(zarr_path, group)
+
 This function generates pyramidal zoom images for a specified group.
 Once prepared, you can load and visualize the images in Napari.
 
@@ -147,10 +154,10 @@ The following script demonstrates how to visualize registered Hoechst and RNA ch
 .. code-block:: python
 
     mf.napari.registered(
-        zarr_path, pitch=pitch[1:], max_level=5,
+        zarr_path, pitch=pitch[1:], max_level=2,
         groups=["hcst_mip_reg", "rna1_mip_reg", "rna2_mip_reg"],
         colors=["blue", "green", "magenta"],
-        limits=[[100, 150], [100, 300], [100, 300]])
+        limits=[[100, 150], [100, 195], [100, 145]])
 
 Here: 
 
