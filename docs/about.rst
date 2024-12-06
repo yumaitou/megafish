@@ -87,6 +87,9 @@ Changelog
 Bug Fixes
   * Fix sample name extraction in CSV and TIFF file saving functions.
   
+Documentation
+  * Update getting_started documentation with corrected paths and additional dataset download instructions.
+  * Fix minor typos in code snippets.
 
 0.1.1 (2024-11-13)
 ----------------------

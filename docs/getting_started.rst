@@ -51,16 +51,10 @@ Below are the installation steps for setting up MEGA-FISH on an Ubuntu 22.04.5 L
 
 1. Create a conda environment and install the necessary packages.
 
-   The use of `mamba` ensures faster and more reliable dependency resolution:
-
    .. code-block:: bash
 
-      conda create -n megafish-env python=3.11
-      conda activate megafish-env
-      conda install conda-libmamba-solver
-      conda config --set solver libmamba
-      conda install -c conda-forge mamba
-      mamba install -y pyqt
+      conda create -n megafish-cpu python=3.11
+      conda activate megafish-cpu
 
 2. Install MEGA-FISH using `PyPI <https://pypi.org/project/megafish/>`_:
 
@@ -105,7 +99,32 @@ In addition, the dataset includes a ``stitched`` folder, which contains a pre-st
     └── stitched/
         └── hcst_mip_stitched.tif
 
-To use this dataset, download it from `Zenodo <https://doi.org/10.5281/zenodo.14158810>`_ and save it to a directory of your choice, for example: ``/home/UserName/megafish_sample/getting_started/``.
+To use this dataset, download it from `Zenodo <https://doi.org/10.5281/zenodo.14158810>`_ and save it to a directory of your choice, for example: ``/home/UserName/megafish_tutorial/``.
+
+The following snippet shows how to create a ``megafish_tutorial`` folder in your home directory and save the downloaded dataset inside it.
+
+.. code-block:: python
+   
+   import os
+   import urllib.request
+   import zipfile
+   import io
+
+   # Create a directory for the tutorial dataset
+   home_dir = os.path.join(os.path.expanduser("~"), "megafish_tutorial")
+   os.makedirs(home_dir, exist_ok=True)
+
+   root_dir = os.path.join(home_dir, "getting_started", "analysis")
+   img_dir = os.path.join(home_dir, "getting_started", "images")
+   stitched_dir = os.path.join(home_dir, "getting_started", "stitched")
+
+   # Download the dataset from Zenodo
+   url = "https://zenodo.org/records/14158810/files/getting_started.zip"
+   zip_path = os.path.join(root_dir, "megafish_sample.zip")
+   opener = urllib.request.build_opener()
+   with opener.open(url) as download_file:
+      with zipfile.ZipFile(io.BytesIO(download_file.read())) as zip_file:
+         zip_file.extractall(home_dir)
 
 
 Processing
@@ -133,7 +152,6 @@ If analysis directory does not exist, create it first.
 
 .. code-block:: python
 
-   root_dir = "/home/UserName/megafish_sample/getting_started/analysis/"
    sample_name = "IMR90_SeqFISH"
    zarr_path = os.path.join(root_dir, sample_name + ".zarr")
 
@@ -148,7 +166,7 @@ For optimal performance, CPU processing is recommended in this tutorial dataset.
 
 .. code-block:: python
 
-   mf.config.set_resource(gpu=False, scheduler="processes")
+   mf.config.set_resource(gpu=False, scheduler="synchronous")
 
 Loading the dataset
 ---------------------
@@ -162,7 +180,6 @@ This section explains how to load a sample dataset into MEGA-FISH for analysis.
 
    .. code-block:: python
 
-        img_dir = "/home/UserName/megafish_sample/getting_started/images/"
         dirlist_path = os.path.join(root_dir, sample_name + "_directorylist.csv")
         mf.load.make_dirlist(dirlist_path, img_dir)
 
@@ -303,8 +320,7 @@ This section describes how to align and register tiled images across different c
    **Note:** MEGA-FISH does not currently support automatic stitched image creation. You can use external tools such as the ImageJ plugin or Imaris Stitcher.
 
    .. code-block:: python
-   
-        stitched_dir = "/home/UserName/megafish_sample/getting_started/stitched/"
+
         stitched_path = os.path.join(stitched_dir, "hcst_mip_stitched.tif")
         mf.load.stitched_tif(
             zarr_path, "stitched", stitched_path, n_tile_y, n_tile_x)
@@ -431,7 +447,7 @@ RNA spot detection in MEGA-FISH involves two main steps: applying a Difference o
                 "rna2_mip_reg_dog_lmx_ith_cnt"]
         group_seg = "hcst_mip_reg_slc_gbr_bin_wts_msl_fil_seg"
         channels = [2, 3]
-        genename_path = "/home/UserName/megafish_sample/getting_started/analysis/IMR90_SeqFISH_genename.csv"
+        genename_path = os.path.join(root_dir, "IMR90_SeqFISH_genename.csv")
         group_out = "rna_cnt"
         mf.seqfish.count_summary(
             zarr_path, groups, group_seg, group_out, channels, genename_path)
