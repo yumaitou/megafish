@@ -11,7 +11,7 @@ Please see documentation for more information about MEGA-FISH.
 ## Installation
 
 MEGA-FISH supports GPU acceleration on Linux systems and Windows PCs with WSL2.
-See the [documentation](https://megafish.readthedocs.io/en/latest/getting_started.html#installation) for more information.
+See the [documentation](https://megafish.readthedocs.io/en/stable/getting_started.html#installation) for more information.
 
 MEGA-FISH supports multi-core CPU parallel computation and is available on Linux, Windows, and macOS. Below are the installation steps for setting up CPU-only MEGA-FISH.
 
@@ -23,15 +23,15 @@ pip install megafish
 
 ## Getting Started
 
-Once you have installed MEGA-FISH, you can start by following the [tutorial](https://megafish.readthedocs.io/en/latest/getting_started.html#sample-dataset) using the example data. 
+Once you have installed MEGA-FISH, you can start by following the [tutorial](https://megafish.readthedocs.io/en/stable/getting_started.html#sample-dataset) using the example data. 
 
 ## Data Structure
 
-MEGA-FISH is designed not to create a MEGA-FISH-specific data structure, but to use simple naming rules for xarray. This allows users to easily customize the analysis pipeline and transfer the data to other packages. See the [documentation](https://megafish.readthedocs.io/en/latest/) for the data structure and functions.
+MEGA-FISH is designed not to create a MEGA-FISH-specific data structure, but to use simple naming rules for xarray. This allows users to easily customize the analysis pipeline and transfer the data to other packages. See the [documentation](https://megafish.readthedocs.io/en/stable/) for the data structure and functions.
 
 ## Contributing
 
-We welcome contributions to MEGA-FISH. Please see the [contribution guide](https://megafish.readthedocs.io/en/latest/user_guide.html#data-structure) for more information.
+We welcome contributions to MEGA-FISH. Please see the [contribution guide](https://megafish.readthedocs.io/en/stable/develop.html) for more information.
 
 ## Citing
 
@@ -41,6 +41,6 @@ Coming soon.
 
 ## License
 
-MEGA-FISH is licensed under the [BSD 3-Clause License](https://github.com/yumaitou/megafish/blob/main/LICENCE). 
+MEGA-FISH is licensed under the [BSD 3-Clause License](https://github.com/yumaitou/megafish/blob/main/LICENSE). 
 
 
