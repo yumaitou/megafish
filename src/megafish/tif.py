@@ -143,7 +143,7 @@ def save_tile_montage(zarr_path, group, tile_size, footer="_mtg"):
         os.makedirs(tif_dir)
 
     # Define the name and path for the final montage TIFF file
-    sample_name = zarr_path.split("/")[-1].replace(".zarr", "")
+    sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
     tif_name = sample_name + "_" + group + footer + ".tif"
     tif_path = os.path.join(tif_dir, tif_name)
 
@@ -179,7 +179,7 @@ def save_whole_image(zarr_path, group, zoom=0, clip=False):
         os.makedirs(tif_dir)
 
     # Define the name and path for the TIFF file
-    sample_name = zarr_path.split("/")[-1].replace(".zarr", "")
+    sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
     tif_name = sample_name + "_" + group + "_zoom" + str(zoom) + ".tif"
 
     # Compute the image from the Dask array

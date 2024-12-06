@@ -431,7 +431,7 @@ def count_spots(zarr_path, group_spot, group_label, footer="_cnt",
         # Aggregate counts by cycle and segment_id
         df = df.groupby(["cycle", "segment_id"]).sum().reset_index()
         df = df.sort_values(["cycle", "segment_id"])
-        sample_name = zarr_path.split("/")[-1].replace(".zarr", "")
+        sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
         csv_name = sample_name + "_" + group + ".csv"
         csv_path = os.path.join(csv_root_dir, csv_name)
         df.to_csv(csv_path, index=False)
@@ -484,7 +484,7 @@ def count_summary(zarr_path, groups, group_seg, group_out, channels,
     print("Summarizing spot counts :" + group_out + show_resource())
 
     root_dir = zarr_path.replace(".zarr", "_csv")
-    sample_name = zarr_path.split("/")[-1].replace(".zarr", "")
+    sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
 
     # Load the segment data CSV
     seg_name = sample_name + "_" + group_seg + ".csv"
@@ -746,7 +746,7 @@ def spot_intensity(zarr_path, group_spt, group_seg, group_int, footer="_sit"):
         df = df.sort_values(sort_values)
 
         # Save the merged DataFrame to a CSV file
-        sample_name = zarr_path.split("/")[-1].replace(".zarr", "")
+        sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
         save_name = sample_name + "_" + group + ".csv"
         save_path = os.path.join(csv_root, save_name)
         df.to_csv(save_path, index=False)

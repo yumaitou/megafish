@@ -14,6 +14,7 @@ from scipy.spatial import cKDTree
 from scipy import ndimage
 from skimage.feature import peak_local_max
 from skimage.segmentation import watershed
+from skimage.measure import centroid as sk_centroid
 from .config import USE_GPU, show_resource
 
 if USE_GPU:
@@ -434,6 +435,7 @@ def masking(zarr_path, group_target, group_mask, reverse=False, footer="_msk"):
     chunk_dict = {dim_name: chunk[0]
                   for dim_name, chunk in zip(xar_tgt.dims, original_chunks)}
 
+    print("Masking: " + group_target + show_resource())
     with ProgressBar():
         # Apply the mask; if reverse is True, invert the mask
         if reverse:
@@ -766,7 +768,7 @@ def info_csv(zarr_path, group, pitch, footer="_seg"):
         centers = np.zeros((len(label_ids), 2))
         for i, label_id in enumerate(label_ids):
             area[i] = (label == label_id).sum()
-            centers[i] = centroid(label == label_id)
+            centers[i] = sk_centroid(label == label_id)
 
         # Create a DataFrame to store segment information
         df = pd.DataFrame({
@@ -844,7 +846,7 @@ def info_csv(zarr_path, group, pitch, footer="_seg"):
                  "centroid_y_um", "centroid_x_um"]]
 
         # Save the merged DataFrame as a CSV file
-        sample_name = zarr_path.split("/")[-1].replace(".zarr", "")
+        sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
         csv_name = sample_name + "_" + group + ".csv"
         csv_path = os.path.join(csv_root_dir, csv_name)
         df.to_csv(csv_path, index=False)
@@ -928,8 +930,8 @@ def normalize_groups(zarr_path, group, footer="_nrm"):
     res.to_zarr(zarr_path, group=group + footer + "/0", mode="w")
 
 
-def select_slice(zarr_path, group, dim, position, chunk_dict,
-                 footer="sel"):
+def select_slice(zarr_path, group, dim, position, chunk_dict=None,
+                 footer="_sel"):
     """
     Selects a slice from an image dataset along a specified dimension.
 
@@ -938,7 +940,7 @@ def select_slice(zarr_path, group, dim, position, chunk_dict,
         group (str): Group name in the Zarr file where the image data is stored.
         dim (str): The dimension along which to select the slice (e.g., "z", "cycle").
         position (int): The index position of the slice to select along the specified dimension.
-        chunk_dict (dict or None): A dictionary specifying chunk sizes for each dimension.
+        chunk_dict (dict or None, optional): A dictionary specifying chunk sizes for each dimension.
                                    If None, the original chunk sizes (excluding the selected dimension) are used.
         footer (str, optional): Footer string to append to the output Zarr group name; defaults to "sel".
 

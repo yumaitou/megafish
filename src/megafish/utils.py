@@ -137,7 +137,7 @@ def get_round_cycle(n_round, n_cycle):
 def copy_groups(src_dir, zarr_path, groups):
     for group in groups:
         print("Copying: " + group)
-        sample_name = zarr_path.split("/")[-1].split(".")[0]
+        sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
         src_path = os.path.join(src_dir, sample_name + ".zarr", group)
         dst_path = os.path.join(zarr_path, group)
 

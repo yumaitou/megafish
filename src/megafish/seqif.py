@@ -211,7 +211,7 @@ def get_intensity(zarr_path, group_int, group_lbl, footer="_int"):
         df = df[["cycle", 'segment_id', 'mean_intensity']]
 
         # Save the merged DataFrame to a CSV file
-        sample_name = zarr_path.split("/")[-1].replace(".zarr", "")
+        sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
         save_name = sample_name + "_" + group + ".csv"
         save_path = os.path.join(csv_root, save_name)
         df.to_csv(save_path, index=False)
@@ -266,7 +266,7 @@ def intnensity_summary(zarr_path, groups, group_seg, group_out, channels,
     print("Summarizing intensity: " + group_out + show_resource())
 
     root_dir = zarr_path.replace(".zarr", "_csv")
-    sample_name = zarr_path.split("/")[-1].replace(".zarr", "")
+    sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
 
     # Load the segmentation data CSV
     seg_name = sample_name + "_" + group_seg + ".csv"

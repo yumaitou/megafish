@@ -701,7 +701,7 @@ def coordinates_decoded(zarr_path, group_dec, group_nuc, footer="_crd"):
         df = df.reset_index(drop=True)
         df = df[['chunk_y', 'chunk_x'] + column_names]
 
-        sample_name = zarr_path.split("/")[-1].replace(".zarr", "")
+        sample_name = os.path.splitext(os.path.basename(zarr_path))[0]
         save_name = sample_name + "_" + group + ".csv"
         save_path = os.path.join(csv_root, save_name)
         df.to_csv(save_path, index=False)

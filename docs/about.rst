@@ -21,7 +21,7 @@ Environments
 * Windows10
 * Windows11 
 * macOS Ventura 13
-* Ubuntu 22.04.1
+* Ubuntu 22.04.5 LTS
 
 Dependencies
 ==================
@@ -31,11 +31,15 @@ The basic **MEGA-FISH** has the following dependencies:
 * numpy
 * pandas
 * matplotlib
-* tifffile
-* tqdm
-* scipy
-* scikit-learn
+* dask
+* xarray
+* zarr
 * scikit-image
+* scikit-learn
+* tifffile
+* scipy
+* napari
+* imaris-ims-file-reader
 
 License
 ==================
@@ -77,6 +81,12 @@ Changelog
 
 **MEGA-FISH** follows major version zero (rapid development) of Semantic Versioning.
 
+0.1.2 (Not released yet)
+--------------------------
+
+Bug Fixes
+  * Fix sample name extraction in CSV and TIFF file saving functions.
+  
 
 0.1.1 (2024-11-13)
 ----------------------
