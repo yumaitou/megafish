@@ -12,6 +12,7 @@ If you want to edit the source code, please run as follows:
     git clone https://github.com/yumaitou/megafish.git
     cd megaish
     conda create -n megafish-dev python=3.11
+    conda activate megafish-dev
     pip install -e .
     pip install -r requirement-dev.txt
 

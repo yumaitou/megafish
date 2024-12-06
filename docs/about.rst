@@ -81,7 +81,7 @@ Changelog
 
 **MEGA-FISH** follows major version zero (rapid development) of Semantic Versioning.
 
-0.1.2 (Not released yet)
+0.1.2 (2024-12-06)
 --------------------------
 
 Bug Fixes
@@ -90,6 +90,8 @@ Bug Fixes
 Documentation
   * Update getting_started documentation with corrected paths and additional dataset download instructions.
   * Fix minor typos in code snippets.
+  * Update README.
+  * Add Code of Conduct, update development documentation, and include development requirements.
 
 0.1.1 (2024-11-13)
 ----------------------
