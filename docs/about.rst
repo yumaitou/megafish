@@ -87,6 +87,9 @@ Changelog
 Bug Fixes
   * Fix save_tile_montage function to accept tile_size as tuple or list.
 
+Maintenance
+  * Add unit tests for utility functions and processing methods, and update development requirements.
+
 0.1.2 (2024-12-06)
 --------------------------
 

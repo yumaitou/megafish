@@ -13,3 +13,5 @@ imaris-ims-file-reader
 
 sphinx
 sphinx-rtd-theme
+pytest
+pytest-cov
