@@ -49,7 +49,7 @@ License
 
    BSD 3-Clause License
 
-   Copyright (c) 2024, Yuma Ito and contributors
+   Copyright (c) 2024-2025, Yuma Ito and contributors
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are met:
@@ -81,11 +81,12 @@ Changelog
 
 **MEGA-FISH** follows major version zero (rapid development) of Semantic Versioning.
 
-0.1.3 (Not released)
+0.1.3 (2025-01-16)
 --------------------------
 
 Bug Fixes
   * Fix save_tile_montage function to accept tile_size as tuple or list.
+  * Restrict zarr dependency version to <3.0 in requirements files
 
 Maintenance
   * Add unit tests for utility functions and processing methods, and update development requirements.

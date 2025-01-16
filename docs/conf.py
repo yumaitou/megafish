@@ -17,10 +17,10 @@ sys.path.insert(0, os.path.abspath('../src'))
 # -- Project information ------------------------------------------------------
 
 project = 'MEGA-FISH'
-copyright = '2024, Yuma Ito'
+copyright = '2024-2025, Yuma Ito'
 author = 'Yuma Ito'
 
-version = '0.1.2'
+version = '0.1.3'
 
 # -- General configuration ----------------------------------------------------
 

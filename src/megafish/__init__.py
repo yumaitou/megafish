@@ -11,7 +11,7 @@ from . import tif
 from . import seqfish
 from . import napari
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 
 __all__ = ["load", "decode", "process", "register", "segment",
            "seqif", "utils", "view", "tif", "seqfish", "napari", "config",
