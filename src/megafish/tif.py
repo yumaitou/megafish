@@ -95,7 +95,7 @@ def save_tile_montage(zarr_path, group, tile_size, footer="_mtg"):
         Args:
             img (numpy.ndarray): The image chunk to be saved.
             tif_dir (str): Directory where the temporary TIFF file will be saved.
-            tile_size (tuple): Desired size of each tile (height, width).
+            tile_size (tuple or list): Desired size of each tile (height, width).
             block_info (dict, optional): Dask block information for chunk location.
 
         Returns:
@@ -108,6 +108,9 @@ def save_tile_montage(zarr_path, group, tile_size, footer="_mtg"):
         tif_path = os.path.join(tif_dir, cunnk_name + ".tif")
 
         # Resize the image chunk to the specified tile size
+        if type(tile_size) is tuple:
+            tile_size = list(tile_size)
+
         output_shape = tuple(list(img.shape[:-2]) + tile_size)
         img_reshaped = resize(img, output_shape, preserve_range=True)
 

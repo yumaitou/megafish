@@ -81,6 +81,12 @@ Changelog
 
 **MEGA-FISH** follows major version zero (rapid development) of Semantic Versioning.
 
+0.1.3 (Not released)
+--------------------------
+
+Bug Fixes
+  * Fix save_tile_montage function to accept tile_size as tuple or list.
+
 0.1.2 (2024-12-06)
 --------------------------
 
