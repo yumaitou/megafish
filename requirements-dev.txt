@@ -3,7 +3,7 @@ pandas
 matplotlib
 dask
 xarray
-zarr
+zarr<3.0
 scikit-image
 scikit-learn
 tifffile
